@@ -1,8 +1,10 @@
 # go-eliza
 
-``
+[![](https://godoc.org/github.com/necrophonic/go-eliza?status.svg)](http://godoc.org/github.com/necrophonic/go-eliza) [![Go Report Card](https://goreportcard.com/badge/github.com/necrophonic/go-eliza)](https://goreportcard.com/report/github.com/necrophonic/go-eliza)
+
+```
 import "github.com/necrophonic/go-eliza"
-``
+```
 
 Simple library implementation of Eliza chatbot in Go
 
