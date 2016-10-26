@@ -13,30 +13,35 @@ func TestAnalysing(t *testing.T) {
 	log.Init(log.LevelNone)
 
 	var r string
+	var rb []byte
 
 	Convey("Ask some questions", t, func() {
-		r, _ = Analyse("Sorry")
+		r, _ = AnalyseString("Sorry")
 		So(r, ShouldEqual, "Please don't apologise.")
 
-		r, _ = Analyse("Gobbledigook")
+		r, _ = AnalyseString("Gobbledigook")
 		So(r, ShouldEqual, "I'm not sure I understand you fully.")
 	})
 
 	Convey("Performs substitutions", t, func() {
-		r, _ = Analyse("But I remember your sheep")
+		r, _ = AnalyseString("But I remember your sheep")
 		So(r, ShouldEqual, "Do you often think of my sheep ?")
 	})
 
 	Convey("Asking the same question should cycle the response", t, func() {
-		r, _ = Analyse("Sorry")
+		r, _ = AnalyseString("Sorry")
 		So(r, ShouldEqual, "Apologies are not necessary.")
 
-		r, _ = Analyse("Sorry")
+		r, _ = AnalyseString("Sorry")
 		So(r, ShouldEqual, "I've told you that apologies are not required.")
 
 		// Loop back around
-		r, _ = Analyse("Sorry")
+		r, _ = AnalyseString("Sorry")
 		So(r, ShouldEqual, "Please don't apologise.")
 	})
 
+	Convey("Analyse a byte array", t, func() {
+		rb, _ = Analyse([]byte{'s', 'o', 'r', 'r', 'y'})
+		So(string(rb), ShouldEqual, "Apologies are not necessary.")
+	})
 }

@@ -16,8 +16,17 @@ func init() {
 	log.InitFromString(os.Getenv("ELIZA_LOG_LEVEL"))
 }
 
-// Analyse allows you to say something to eliza and get a reply
-func Analyse(this string) (string, error) {
+// Analyse performs psychoanalysis on the given sentance
+func Analyse(this []byte) ([]byte, error) {
+	response, err := AnalyseString(string(this))
+	if err != nil {
+		return nil, err
+	}
+	return []byte(response), nil
+}
+
+// AnalyseString performs psychoanalysis on the given sentance string
+func AnalyseString(this string) (string, error) {
 	// nb. These steps aren't necessarily the most effecient as some things
 	// could be combined - but they're laid out like this to more clearly
 	// document the alogrithm.
