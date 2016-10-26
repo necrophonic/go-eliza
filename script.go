@@ -746,7 +746,7 @@ var keywordMap = map[string]keyword{
 				AssemblyNext: 0,
 				Pattern:      "(.*)@everyone ?(.*)",
 				Assemblies: []string{
-					"Realy, (2) ?",
+					"Really, (2) ?",
 					"Surely not (2).",
 					"Can you think of anyone in particular ?",
 					"Who, for example?",
@@ -786,7 +786,7 @@ var keywordMap = map[string]keyword{
 		},
 	},
 
-	"noone": keyword{
+	"no one": keyword{
 		Weight: 2,
 		Decompositions: []*decomp{
 			&decomp{
@@ -817,10 +817,10 @@ var keywordMap = map[string]keyword{
 				Pattern:      "(.*)",
 				Assemblies: []string{
 					"In what way ?",
-					"What resemblence do you see ?",
+					"What resemblance do you see ?",
 					"What does that similarity suggest to you ?",
 					"What other connections do you see ?",
-					"What do you suppose that resemblence means ?",
+					"What do you suppose that resemblance means ?",
 					"What is the connection, do you suppose ?",
 					"Could here really be some connection ?",
 					"How ?",

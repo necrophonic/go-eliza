@@ -27,7 +27,7 @@ func Analyse(this []byte) ([]byte, error) {
 
 // AnalyseString performs psychoanalysis on the given sentance string
 func AnalyseString(this string) (string, error) {
-	// nb. These steps aren't necessarily the most effecient as some things
+	// nb. These steps aren't necessarily the most efficient as some things
 	// could be combined - but they're laid out like this to more clearly
 	// document the alogrithm.
 
@@ -131,7 +131,7 @@ func processKeywords(keywords []keyword, words []string) ([]string, error) {
 			// Deal with synonyms
 			// If we have a word in the pattern prefixed with a @ then it needs to be
 			// substituted with all possible synonyms.
-			// nb. May be more effecient to bake these directly into the pattern definitions
+			// nb. May be more efficient to bake these directly into the pattern definitions
 			// but that negates ease of adding new synonyms in future.
 			for k := range synonyms {
 				synonymKey := "@" + k
