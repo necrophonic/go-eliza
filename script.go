@@ -33,14 +33,14 @@ var (
 	}
 
 	synonyms = map[string][]string{
-		"belief":   []string{"belief", "feel", "think", "believe", "wish"},
-		"family":   []string{"family", "mother", "mom", "father", "dad", "sister", "brother", "wife", "children", "child"},
-		"desire":   []string{"desire", "want", "need"},
-		"sad":      []string{"sad", "unhappy", "depressed", "sick"},
-		"happy":    []string{"happy", "elated", "glad", "better"},
-		"cannot":   []string{"cannot", "can't"},
-		"everyone": []string{"everyone", "everybody", "nobody", "noone"},
-		"be":       []string{"be", "am", "is", "are", "was"},
+		"belief":   {"belief", "feel", "think", "believe", "wish"},
+		"family":   {"family", "mother", "mom", "father", "dad", "sister", "brother", "wife", "children", "child"},
+		"desire":   {"desire", "want", "need"},
+		"sad":      {"sad", "unhappy", "depressed", "sick"},
+		"happy":    {"happy", "elated", "glad", "better"},
+		"cannot":   {"cannot", "can't"},
+		"everyone": {"everyone", "everybody", "nobody", "noone"},
+		"be":       {"be", "am", "is", "are", "was"},
 	}
 
 	quit = []string{"bye", "goodbye", "quit", "ciao", "see you"}
@@ -59,10 +59,10 @@ type decomp struct {
 
 var keywordMap = map[string]keyword{
 
-	"xnone": keyword{
+	"xnone": {
 		Weight: 1,
 		Decompositions: []*decomp{
-			&decomp{
+			{
 				AssemblyNext: 0,
 				Pattern:      "(.*)",
 				Assemblies: []string{
@@ -75,10 +75,10 @@ var keywordMap = map[string]keyword{
 		},
 	},
 
-	"sorry": keyword{
+	"sorry": {
 		Weight: 1,
 		Decompositions: []*decomp{
-			&decomp{
+			{
 				AssemblyNext: 0,
 				Pattern:      "(.*)",
 				Assemblies: []string{
@@ -90,10 +90,10 @@ var keywordMap = map[string]keyword{
 		},
 	},
 
-	"apologise": keyword{
+	"apologise": {
 		Weight: 1,
 		Decompositions: []*decomp{
-			&decomp{
+			{
 				AssemblyNext: 0,
 				Pattern:      "(.*)",
 				Assemblies: []string{
@@ -103,10 +103,10 @@ var keywordMap = map[string]keyword{
 		},
 	},
 
-	"remember": keyword{
+	"remember": {
 		Weight: 5,
 		Decompositions: []*decomp{
-			&decomp{
+			{
 				AssemblyNext: 0,
 				Pattern:      "(.*) ?i remember ?(.*)",
 				Assemblies: []string{
@@ -118,7 +118,7 @@ var keywordMap = map[string]keyword{
 					"What is the connection between me and (2) ?",
 				},
 			},
-			&decomp{
+			{
 				AssemblyNext: 0,
 				Pattern:      "(.*) ?do you remember ?(.*)",
 				Assemblies: []string{
@@ -132,10 +132,10 @@ var keywordMap = map[string]keyword{
 		},
 	},
 
-	"if": keyword{
+	"if": {
 		Weight: 3,
 		Decompositions: []*decomp{
-			&decomp{
+			{
 				AssemblyNext: 0,
 				Pattern:      "(.*) ?if ?(.*)",
 				Assemblies: []string{
@@ -148,10 +148,10 @@ var keywordMap = map[string]keyword{
 		},
 	},
 
-	"dreamed": keyword{
+	"dreamed": {
 		Weight: 4,
 		Decompositions: []*decomp{
-			&decomp{
+			{
 				AssemblyNext: 0,
 				Pattern:      "(.*) ?i dreamed ?(.*)",
 				Assemblies: []string{
@@ -164,10 +164,10 @@ var keywordMap = map[string]keyword{
 		},
 	},
 
-	"dream": keyword{
+	"dream": {
 		Weight: 3,
 		Decompositions: []*decomp{
-			&decomp{
+			{
 				AssemblyNext: 0,
 				Pattern:      "(.*)",
 				Assemblies: []string{
@@ -180,10 +180,10 @@ var keywordMap = map[string]keyword{
 		},
 	},
 
-	"perhaps": keyword{
+	"perhaps": {
 		Weight: 1,
 		Decompositions: []*decomp{
-			&decomp{
+			{
 				AssemblyNext: 0,
 				Pattern:      "(.*)",
 				Assemblies: []string{
@@ -194,7 +194,7 @@ var keywordMap = map[string]keyword{
 					"Don't you know ?",
 				},
 			},
-			&decomp{
+			{
 				AssemblyNext: 0,
 				Pattern:      "(.*)",
 				Assemblies: []string{
@@ -205,10 +205,10 @@ var keywordMap = map[string]keyword{
 		},
 	},
 
-	"deutsch": keyword{
+	"deutsch": {
 		Weight: 1,
 		Decompositions: []*decomp{
-			&decomp{
+			{
 				AssemblyNext: 0,
 				Pattern:      "(.*)",
 				Assemblies: []string{
@@ -219,10 +219,10 @@ var keywordMap = map[string]keyword{
 		},
 	},
 
-	"francais": keyword{
+	"francais": {
 		Weight: 1,
 		Decompositions: []*decomp{
-			&decomp{
+			{
 				AssemblyNext: 0,
 				Pattern:      "(.*)",
 				Assemblies: []string{
@@ -233,10 +233,10 @@ var keywordMap = map[string]keyword{
 		},
 	},
 
-	"italiano": keyword{
+	"italiano": {
 		Weight: 1,
 		Decompositions: []*decomp{
-			&decomp{
+			{
 				AssemblyNext: 0,
 				Pattern:      "(.*)",
 				Assemblies: []string{
@@ -247,10 +247,10 @@ var keywordMap = map[string]keyword{
 		},
 	},
 
-	"espanol": keyword{
+	"espanol": {
 		Weight: 1,
 		Decompositions: []*decomp{
-			&decomp{
+			{
 				AssemblyNext: 0,
 				Pattern:      "(.*)",
 				Assemblies: []string{
@@ -261,10 +261,10 @@ var keywordMap = map[string]keyword{
 		},
 	},
 
-	"xforeign": keyword{
+	"xforeign": {
 		Weight: 1,
 		Decompositions: []*decomp{
-			&decomp{
+			{
 				AssemblyNext: 0,
 				Pattern:      "(.*)",
 				Assemblies: []string{
@@ -274,10 +274,10 @@ var keywordMap = map[string]keyword{
 		},
 	},
 
-	"hello": keyword{
+	"hello": {
 		Weight: 1,
 		Decompositions: []*decomp{
-			&decomp{
+			{
 				AssemblyNext: 0,
 				Pattern:      "(.*)",
 				Assemblies: []string{
@@ -285,7 +285,7 @@ var keywordMap = map[string]keyword{
 					"Hi.	What seems to be your problem ?",
 				},
 			},
-			&decomp{
+			{
 				AssemblyNext: 0,
 				Pattern:      "(.*)",
 				Assemblies: []string{
@@ -300,10 +300,10 @@ var keywordMap = map[string]keyword{
 		},
 	},
 
-	"am": keyword{
+	"am": {
 		Weight: 1,
 		Decompositions: []*decomp{
-			&decomp{
+			{
 				AssemblyNext: 0,
 				Pattern:      "(.*) ?am i ?(.*)",
 				Assemblies: []string{
@@ -314,7 +314,7 @@ var keywordMap = map[string]keyword{
 					"goto what",
 				},
 			},
-			&decomp{
+			{
 				AssemblyNext: 0,
 				Pattern:      "(.*)",
 				Assemblies: []string{
@@ -325,10 +325,10 @@ var keywordMap = map[string]keyword{
 		},
 	},
 
-	"are": keyword{
+	"are": {
 		Weight: 1,
 		Decompositions: []*decomp{
-			&decomp{
+			{
 				AssemblyNext: 0,
 				Pattern:      "(.*) ?are you ?(.*)",
 				Assemblies: []string{
@@ -339,7 +339,7 @@ var keywordMap = map[string]keyword{
 					"goto what",
 				},
 			},
-			&decomp{
+			{
 				AssemblyNext: 0,
 				Pattern:      "(.*) ?are ?(.*)",
 				Assemblies: []string{
@@ -352,10 +352,10 @@ var keywordMap = map[string]keyword{
 		},
 	},
 
-	"your": keyword{
+	"your": {
 		Weight: 1,
 		Decompositions: []*decomp{
-			&decomp{
+			{
 				AssemblyNext: 0,
 				Pattern:      "(.*) ?your ?(.*)",
 				Assemblies: []string{
@@ -368,10 +368,10 @@ var keywordMap = map[string]keyword{
 		},
 	},
 
-	"was": keyword{
+	"was": {
 		Weight: 2,
 		Decompositions: []*decomp{
-			&decomp{
+			{
 				AssemblyNext: 0,
 				Pattern:      "(.*) ?was i ?(.*)",
 				Assemblies: []string{
@@ -383,7 +383,7 @@ var keywordMap = map[string]keyword{
 					"goto what",
 				},
 			},
-			&decomp{
+			{
 				AssemblyNext: 0,
 				Pattern:      "(.*) ?i was ?(.*)",
 				Assemblies: []string{
@@ -392,7 +392,7 @@ var keywordMap = map[string]keyword{
 					"Perhaps I already know you were (2).",
 				},
 			},
-			&decomp{
+			{
 				AssemblyNext: 0,
 				Pattern:      "(.*) ?was you ?(.*)",
 				Assemblies: []string{
@@ -406,10 +406,10 @@ var keywordMap = map[string]keyword{
 		},
 	},
 
-	"i": keyword{
+	"i": {
 		Weight: 1,
 		Decompositions: []*decomp{
-			&decomp{
+			{
 				AssemblyNext: 0,
 				Pattern:      "(.*) ?i @desire ?(.*)",
 				Assemblies: []string{
@@ -421,7 +421,7 @@ var keywordMap = map[string]keyword{
 					"What does wanting (2) have to do with this discussion ?",
 				},
 			},
-			&decomp{
+			{
 				AssemblyNext: 0,
 				Pattern:      "(.*) ?i am (.*)@sad ?(.*)",
 				Assemblies: []string{
@@ -431,7 +431,7 @@ var keywordMap = map[string]keyword{
 					"Can you explain what made you (3) ?",
 				},
 			},
-			&decomp{
+			{
 				AssemblyNext: 0,
 				Pattern:      "(.*) ?i am (.*)@happy ?(.*)",
 				Assemblies: []string{
@@ -441,14 +441,14 @@ var keywordMap = map[string]keyword{
 					"Can you explan why you are suddenly (3) ?",
 				},
 			},
-			&decomp{
+			{
 				AssemblyNext: 0,
 				Pattern:      "(.*) ?i was ?(.*)",
 				Assemblies: []string{
 					"goto was",
 				},
 			},
-			&decomp{
+			{
 				AssemblyNext: 0,
 				Pattern:      "(.*) ?i @belief (.*) i ?(.*)",
 				Assemblies: []string{
@@ -457,14 +457,14 @@ var keywordMap = map[string]keyword{
 					"Do you really doubt you (3) ?",
 				},
 			},
-			&decomp{
+			{
 				AssemblyNext: 0,
 				Pattern:      "(.*) ?i (.*)@belief (.*) you ?(.*)",
 				Assemblies: []string{
 					"goto you",
 				},
 			},
-			&decomp{
+			{
 				AssemblyNext: 0,
 				Pattern:      "(.*) ?i am ?(.*)",
 				Assemblies: []string{
@@ -474,7 +474,7 @@ var keywordMap = map[string]keyword{
 					"Do you enjoy being (2) ?",
 				},
 			},
-			&decomp{
+			{
 				AssemblyNext: 0,
 				Pattern:      "(.*) ?i @cannot ?(.*)",
 				Assemblies: []string{
@@ -484,7 +484,7 @@ var keywordMap = map[string]keyword{
 					"Do you really want to be able to (2) ?",
 				},
 			},
-			&decomp{
+			{
 				AssemblyNext: 0,
 				Pattern:      "(.*) ?i don't ?(.*)",
 				Assemblies: []string{
@@ -494,7 +494,7 @@ var keywordMap = map[string]keyword{
 					"Does that trouble you ?",
 				},
 			},
-			&decomp{
+			{
 				AssemblyNext: 0,
 				Pattern:      "(.*) ?do i feel ?(.*)",
 				Assemblies: []string{
@@ -504,7 +504,7 @@ var keywordMap = map[string]keyword{
 					"Of what does feeling (2) remind you ?",
 				},
 			},
-			&decomp{
+			{
 				AssemblyNext: 0,
 				Pattern:      "(.*) ?i (.*) you ?(.*)",
 				Assemblies: []string{
@@ -514,7 +514,7 @@ var keywordMap = map[string]keyword{
 					"Do you (2) anyone else ?",
 				},
 			},
-			&decomp{
+			{
 				AssemblyNext: 0,
 				Pattern:      "(.*)",
 				Assemblies: []string{
@@ -527,17 +527,17 @@ var keywordMap = map[string]keyword{
 		},
 	},
 
-	"you": keyword{
+	"you": {
 		Weight: 1,
 		Decompositions: []*decomp{
-			&decomp{
+			{
 				AssemblyNext: 0,
 				Pattern:      "(.*) ?you remind me of ?(.*)",
 				Assemblies: []string{
 					"goto alike",
 				},
 			},
-			&decomp{
+			{
 				AssemblyNext: 0,
 				Pattern:      "(.*) ?you are ?(.*)",
 				Assemblies: []string{
@@ -547,7 +547,7 @@ var keywordMap = map[string]keyword{
 					"Perhaps you would like to be (2).",
 				},
 			},
-			&decomp{
+			{
 				AssemblyNext: 0,
 				Pattern:      "(.*) ?you (.*) me ?(.*)",
 				Assemblies: []string{
@@ -560,7 +560,7 @@ var keywordMap = map[string]keyword{
 					"Does someone else believe I (2) you ?",
 				},
 			},
-			&decomp{
+			{
 				AssemblyNext: 0,
 				Pattern:      "(.*) ?you ?(.*)",
 				Assemblies: []string{
@@ -573,10 +573,10 @@ var keywordMap = map[string]keyword{
 		},
 	},
 
-	"yes": keyword{
+	"yes": {
 		Weight: 1,
 		Decompositions: []*decomp{
-			&decomp{
+			{
 				AssemblyNext: 0,
 				Pattern:      "(.*)",
 				Assemblies: []string{
@@ -589,10 +589,10 @@ var keywordMap = map[string]keyword{
 		},
 	},
 
-	"no": keyword{
+	"no": {
 		Weight: 1,
 		Decompositions: []*decomp{
-			&decomp{
+			{
 				AssemblyNext: 0,
 				Pattern:      "(.*)",
 				Assemblies: []string{
@@ -605,10 +605,10 @@ var keywordMap = map[string]keyword{
 		},
 	},
 
-	"my": keyword{
+	"my": {
 		Weight: 2,
 		Decompositions: []*decomp{
-			&decomp{
+			{
 				AssemblyNext: 0,
 				Pattern:      "$(.*) ?my ?(.*)",
 				Assemblies: []string{
@@ -618,7 +618,7 @@ var keywordMap = map[string]keyword{
 					"Does that have anything to do with the fact that your (2) ?",
 				},
 			},
-			&decomp{
+			{
 				AssemblyNext: 0,
 				Pattern:      "(.*) ?my (.*)@family ?(.*)",
 				Assemblies: []string{
@@ -628,7 +628,7 @@ var keywordMap = map[string]keyword{
 					"What else comes to mind when you think of your (3) ?",
 				},
 			},
-			&decomp{
+			{
 				AssemblyNext: 0,
 				Pattern:      "(.*) ?my ?(.*)",
 				Assemblies: []string{
@@ -641,10 +641,10 @@ var keywordMap = map[string]keyword{
 		},
 	},
 
-	"can": keyword{
+	"can": {
 		Weight: 1,
 		Decompositions: []*decomp{
-			&decomp{
+			{
 				AssemblyNext: 0,
 				Pattern:      "(.*) ?can you ?(.*)",
 				Assemblies: []string{
@@ -654,7 +654,7 @@ var keywordMap = map[string]keyword{
 					"Perhaps you would like to be able to (2) yourself.",
 				},
 			},
-			&decomp{
+			{
 				AssemblyNext: 0,
 				Pattern:      "(.*) ?can i ?(.*)",
 				Assemblies: []string{
@@ -667,10 +667,10 @@ var keywordMap = map[string]keyword{
 		},
 	},
 
-	"what": keyword{
+	"what": {
 		Weight: 1,
 		Decompositions: []*decomp{
-			&decomp{
+			{
 				AssemblyNext: 0,
 				Pattern:      "(.*)",
 				Assemblies: []string{
@@ -688,10 +688,10 @@ var keywordMap = map[string]keyword{
 		},
 	},
 
-	"because": keyword{
+	"because": {
 		Weight: 1,
 		Decompositions: []*decomp{
-			&decomp{
+			{
 				AssemblyNext: 0,
 				Pattern:      "(.*)",
 				Assemblies: []string{
@@ -704,10 +704,10 @@ var keywordMap = map[string]keyword{
 		},
 	},
 
-	"why": keyword{
+	"why": {
 		Weight: 1,
 		Decompositions: []*decomp{
-			&decomp{
+			{
 				AssemblyNext: 0,
 				Pattern:      "(.*) ?why don't you ?(.*)",
 				Assemblies: []string{
@@ -718,7 +718,7 @@ var keywordMap = map[string]keyword{
 					"goto what",
 				},
 			},
-			&decomp{
+			{
 				AssemblyNext: 0,
 				Pattern:      "(.*) ?why can't i ?(.*)",
 				Assemblies: []string{
@@ -729,7 +729,7 @@ var keywordMap = map[string]keyword{
 					"goto what",
 				},
 			},
-			&decomp{
+			{
 				AssemblyNext: 0,
 				Pattern:      "(.*)",
 				Assemblies: []string{
@@ -739,10 +739,10 @@ var keywordMap = map[string]keyword{
 		},
 	},
 
-	"everyone": keyword{
+	"everyone": {
 		Weight: 2,
 		Decompositions: []*decomp{
-			&decomp{
+			{
 				AssemblyNext: 0,
 				Pattern:      "(.*)@everyone ?(.*)",
 				Assemblies: []string{
@@ -760,10 +760,10 @@ var keywordMap = map[string]keyword{
 		},
 	},
 
-	"everybody": keyword{
+	"everybody": {
 		Weight: 2,
 		Decompositions: []*decomp{
-			&decomp{
+			{
 				AssemblyNext: 0,
 				Pattern:      "(.*)",
 				Assemblies: []string{
@@ -773,10 +773,10 @@ var keywordMap = map[string]keyword{
 		},
 	},
 
-	"nobody": keyword{
+	"nobody": {
 		Weight: 2,
 		Decompositions: []*decomp{
-			&decomp{
+			{
 				AssemblyNext: 0,
 				Pattern:      "(.*)",
 				Assemblies: []string{
@@ -786,10 +786,10 @@ var keywordMap = map[string]keyword{
 		},
 	},
 
-	"no one": keyword{
+	"no one": {
 		Weight: 2,
 		Decompositions: []*decomp{
-			&decomp{
+			{
 				AssemblyNext: 0,
 				Pattern:      "(.*)",
 				Assemblies: []string{
@@ -799,10 +799,10 @@ var keywordMap = map[string]keyword{
 		},
 	},
 
-	"always": keyword{
+	"always": {
 		Weight: 1,
 		Decompositions: []*decomp{
-			&decomp{
+			{
 				AssemblyNext: 0,
 				Pattern:      "(.*)",
 				Assemblies: []string{
@@ -812,7 +812,7 @@ var keywordMap = map[string]keyword{
 					"Really, always ?",
 				},
 			},
-			&decomp{
+			{
 				AssemblyNext: 0,
 				Pattern:      "(.*)",
 				Assemblies: []string{
@@ -826,7 +826,7 @@ var keywordMap = map[string]keyword{
 					"How ?",
 				},
 			},
-			&decomp{
+			{
 				AssemblyNext: 0,
 				Pattern:      "(.*)@be (.*) like ?(.*)",
 				Assemblies: []string{
