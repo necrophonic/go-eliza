@@ -44,3 +44,10 @@ func main() {
 	os.Exit(0)
 }
 ```
+
+License
+-------
+
+Copyright (c) 2016 J Gregory
+
+Released under MIT license, see [LICENSE](LICENSE) for details.
